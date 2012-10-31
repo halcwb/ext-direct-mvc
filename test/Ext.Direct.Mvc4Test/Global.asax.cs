@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Ext.Direct.Mvc4Test.Models;
 
 namespace Ext.Direct.Mvc4Test {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -16,6 +18,9 @@ namespace Ext.Direct.Mvc4Test {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // Initialize the database with sample data
+            Database.SetInitializer<MovieDbContext>(new MovieDbInitializer());
         }
     }
 }
