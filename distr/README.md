@@ -1,1 +1,0 @@
-This folder contains pre-compiled binaries ready to be used in your projects.
