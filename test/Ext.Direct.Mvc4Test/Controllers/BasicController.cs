@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Ext.Direct.Mvc;
+using Ext.Direct.Mvc4Test.Models;
+
+namespace Ext.Direct.Mvc4Test.Controllers {
+
+    public class BasicController : DirectController {
+
+        public ActionResult Echo(string text, DateTime date, Contact contact) {
+            return Json(new {
+                text,
+                date,
+                contact
+            });
+        }
+
+        [NamedArguments]
+        public ActionResult EchoNamedArgs(string text, DateTime date, Contact contact) {
+            return Json(new {
+                text,
+                date,
+                contact
+            });
+        }
+
+        public ActionResult TestException() {
+            var e = new DirectException("Oh no! Something bad happened!!!");
+            e.Data.Add("stringInfo", "Additional string information.");
+            e.Data["intInfo"] = -903;
+            e.Data["dateTimeInfo"] = DateTime.Now;
+            throw e;
+
+            return Json("This line is never reached.");
+        }
+    }
+}

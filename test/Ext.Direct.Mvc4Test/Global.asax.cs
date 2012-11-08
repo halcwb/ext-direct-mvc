@@ -20,7 +20,7 @@ namespace Ext.Direct.Mvc4Test {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             // Initialize the database with sample data
-            Database.SetInitializer<MovieDbContext>(new MovieDbInitializer());
+            Database.SetInitializer<ContactsContext>(new ContactsInitializer());
         }
     }
 }

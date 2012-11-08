@@ -111,25 +111,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MoviesController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\BasicController.cs" />
+    <Compile Include="Controllers\TreeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\MovieDbContext.cs" />
-    <Compile Include="Models\MovieDbInitializer.cs" />
-    <Compile Include="Models\MovieGenre.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactsContext.cs" />
+    <Compile Include="Models\ContactsInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="app\app.js" />
+    <Content Include="scripts\ContactForm.js" />
+    <Content Include="scripts\ContactsGrid.js" />
+    <Content Include="resources\css\main.css" />
+    <Content Include="scripts\FileUploadForm.js" />
+    <Content Include="scripts\Main.js" />
+    <Content Include="scripts\Contact.js" />
     <Content Include="Global.asax" />
+    <Content Include="scripts\Tree.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -141,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploaded Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
