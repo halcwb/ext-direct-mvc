@@ -30,9 +30,9 @@ Quick Start
 
 Here's how to quickly start using Ext.Direct.Mvc in your project:
 
-In you ASP.NET MVC project add a reference to Ext.Direct.Mvc dll and Newtonsoft.Json dll that comes with it. It is important because Ext.Direct.Mvc is compiled with it.
+In your ASP.NET MVC project add a reference to Ext.Direct.Mvc dll and the Newtonsoft.Json dll that comes with it. It is important that you reference the included Newtonsoft.Json.dll file because Ext.Direct.Mvc is compiled against it.
 
-Add a script tag to your main view, normally Views/Home/Index.cshtml, and set its `scr` attribute to "/DirectApi" relative to the root of your application. It outputs the method configurations for Ext Direct to create client-side stubs. In ASP.NET MVC 3 application it will look like this:
+Add a script tag to your main view, normally Views/Home/Index.cshtml, and set its scr attribute to "~/DirectApi" relative to the root of your application. It outputs the method configurations for Ext Direct to create client-side stubs.
 
 ```
 <script type="text/javascript" src="@Url.Content("~/DirectApi")"></script>
@@ -48,9 +48,9 @@ Ext.direct.Manager.addProvider(Ext.app.REMOTING_API);
 Ext.Direct.addProvider(Ext.app.REMOTING_API);
 ```
 
-Make controllers inherit DirectController as opposed to just Controller.
+Make sure that controllers which are intended to be used by Ext Direct inherit **DirectController** as opposed to just Controller.
 
-Return data from controller actions by calling one of the overriden Json methods. Actions that process form posts must be marked with [FormHandler] attribute.
+Return data from controller actions by calling one of the overriden **Json** methods. Actions that process form posts must be marked with `[FormHandler]` attribute.
 
 That's it! Now you can call your controller actions directly from your
 JavaScript code through the created stub methods.
