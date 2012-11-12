@@ -11,17 +11,14 @@ Ext.application({
                 Employed: true
             };
 
-            Basic.Echo("this is a basic demo", new Date(), contact, function (result, event) {
-                var html;
-                if (event.status == true) {
-                    html = [
-                        '<b>Echoed data</b><br/>',
-                        'String: ' + result.text,
-                        'Date: ' + Ext.Date.format(Ext.Date.parse(result.date, 'c'), 'l, F d, Y g:i:s A'),
-                        'Contact: ' + Ext.encode(result.contact)
-                    ].join('<br/>');
-                    Ext.get('echoedData1').setDisplayed('block').update(html);
-                }
+            Basic.Echo("this is a basic demo", new Date(), contact, function (result, response) {
+                var html = [
+                    '<b>Echoed data</b><br/>',
+                    'String: ' + result.text,
+                    'Date: ' + Ext.Date.format(Ext.Date.parse(result.date, 'c'), 'l, F d, Y g:i:s A'),
+                    'Contact: ' + Ext.encode(result.contact)
+                ].join('<br/>');
+                Ext.get('echoedData1').setDisplayed('block').update(html);
             });
         });
         
@@ -38,17 +35,14 @@ Ext.application({
                 text: 'this is a named arguments demo'
             };
 
-            Basic.EchoNamedArgs(args, function (result, event) {
-                var html;
-                if (event.status == true) {
-                    html = [
-                        '<b>Echoed data</b><br/>',
-                        'String: ' + result.text,
-                        'Date: ' + Ext.Date.format(Ext.Date.parse(result.date, 'c'), 'l, F d, Y g:i:s A'),
-                        'Contact: ' + Ext.encode(result.contact)
-                    ].join('<br/>');
-                    Ext.get('echoedData2').setDisplayed('block').update(html);
-                }
+            Basic.EchoNamedArgs(args, function (result, response) {
+                var html = [
+                    '<b>Echoed data</b><br/>',
+                    'String: ' + result.text,
+                    'Date: ' + Ext.Date.format(Ext.Date.parse(result.date, 'c'), 'l, F d, Y g:i:s A'),
+                    'Contact: ' + Ext.encode(result.contact)
+                ].join('<br/>');
+                Ext.get('echoedData2').setDisplayed('block').update(html);
             });
         });
 
