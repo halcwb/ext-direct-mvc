@@ -1,10 +1,8 @@
-Ext.Direct for ASP.NET MVC
-==========================
+# Ext.Direct for ASP.NET MVC
 
 Ext.Direct.Mvc is an implementation of Ext Direct server-side stack for ASP.NET MVC. Ext Direct is a platform and language agnostic technology to remote server-side methods to the client-side. Ext Direct allows for seamless communication between the client-side of an Ext JS application and all popular server platforms. For more information about Ext Direct visit http://www.sencha.com/products/extjs/extdirect.
 
-Key features
-------------
+## Key features
 
 *  Easy setup
 *  Support for different types of parameters - simple types, complex types and arrays
@@ -14,19 +12,16 @@ Key features
 *  Support for custom server-side events
 *  Support for named arguments (Ext JS 4.x)
 
-Official thread on Sencha forums
---------------------------------
+## Official thread on Sencha forums
 
 http://www.sencha.com/forum/showthread.php?72245-Ext.Direct-for-ASP.NET-MVC
 
-Compiling the source
---------------------
+## Compiling the source
 
 You need to open the solution in Visual Studio 2012 and allow NuGet to download missing packages before attempting to build it.
 To do that go to the Options > Package Manager > General and check "Allow NuGet to download missing packages during build".
 
-Quick Start
------------
+## Quick Start
 
 Here's how to quickly start using Ext.Direct.Mvc in your project:
 
@@ -52,5 +47,6 @@ Make sure that controllers which are intended to be used by Ext Direct inherit *
 
 Return data from controller actions by calling one of the overriden **Json** methods. Actions that process form posts must be marked with `[FormHandler]` attribute.
 
-That's it! Now you can call your controller actions directly from your
-JavaScript code through the created stub methods.
+**That's it!** Now you can call your controller actions directly from your JavaScript code through the created stub methods.
+
+For more advanced configurations and usage see the Wiki(https://github.com/elishnevsky/ext-direct-mvc/wiki).
