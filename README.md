@@ -49,4 +49,4 @@ Return data from controller actions by calling one of the overriden **Json** met
 
 **That's it!** Now you can call your controller actions directly from your JavaScript code through the created stub methods.
 
-For more advanced configurations and usage see the Wiki(https://github.com/elishnevsky/ext-direct-mvc/wiki).
+For more advanced configurations and usage see the Wiki: https://github.com/elishnevsky/ext-direct-mvc/wiki
