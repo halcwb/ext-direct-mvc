@@ -45,6 +45,12 @@ namespace Ext.Direct.Mvc {
             get { return (string)this["namespace"]; }
         }
 
+        // One or more names of assemblies to generate proxy for, separated by a comma.
+        [ConfigurationProperty("assembly", IsRequired = false)]
+        public string Assembly {
+            get { return (string)this["assembly"]; }
+        }
+
         // Number that specifies the amount of time in milliseconds to wait before sending a batched request.
         // If not specified then the default value, configured by Ext JS will be used, which is 10
         [ConfigurationProperty("buffer", IsRequired = false, DefaultValue = null)]

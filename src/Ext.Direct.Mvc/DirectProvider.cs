@@ -47,21 +47,36 @@ namespace Ext.Direct.Mvc {
         private void Configure() {
             if (_actions == null) {
                 _actions = new Dictionary<string, DirectAction>();
-                var assemblies = BuildManager.GetReferencedAssemblies();
-                foreach (Assembly assembly in assemblies) {
-                    var types = assembly.GetTypes().Where(type =>
-                        type.IsPublic &&
-                        type.IsSubclassOf(typeof(DirectController)) &&
-                        !type.HasAttribute<DirectIgnoreAttribute>()
-                    );
-                    foreach (Type type in types) {
-                        var action = new DirectAction(type);
-                        if (_actions.ContainsKey(action.Name)) {
-                            throw new Exception(String.Format(DirectResources.DirectProvider_ActionExists, action.Name));
-                        }
-                        _actions.Add(action.Name, action);
+
+                var config = ProviderConfiguration.GetConfiguration();
+                if (!String.IsNullOrEmpty(config.Assembly)) {
+                    string[] assemblyNames = config.Assembly.Split(',');
+                    foreach (string assemblyName in assemblyNames) {
+                        Assembly assembly = Assembly.Load(assemblyName.Trim());
+                        ConfigureAssembly(assembly);
+                    }
+                } else {
+                    var assemblies = BuildManager.GetReferencedAssemblies();
+                    foreach (Assembly assembly in assemblies) {
+                        ConfigureAssembly(assembly);
                     }
                 }
+            }
+        }
+
+        private void ConfigureAssembly(Assembly assembly) {
+            var types = assembly.GetLoadableTypes().Where(type =>
+                type.IsPublic &&
+                type.IsSubclassOf(typeof(DirectController)) &&
+                !type.HasAttribute<DirectIgnoreAttribute>()
+            );
+
+            foreach (Type type in types) {
+                var action = new DirectAction(type);
+                if (_actions.ContainsKey(action.Name)) {
+                    throw new Exception(String.Format(DirectResources.DirectProvider_ActionExists, action.Name));
+                }
+                _actions.Add(action.Name, action);
             }
         }
 
