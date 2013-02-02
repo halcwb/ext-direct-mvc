@@ -70,6 +70,7 @@
     <Compile Include="DirectResult.cs" />
     <Compile Include="DirectRouterController.cs" />
     <Compile Include="DirectValueProvider.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\JsonExtensions.cs" />
     <Compile Include="Extensions\MethodExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
