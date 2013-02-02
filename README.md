@@ -20,7 +20,6 @@ http://www.sencha.com/forum/showthread.php?72245-Ext.Direct-for-ASP.NET-MVC
 
 You need to open the solution in Visual Studio 2012 and allow NuGet to download missing packages before attempting to build it.
 To do that go to the Options > Package Manager > General and check "Allow NuGet to download missing packages during build".
-Note that Ext.Direct.Mvc3.sln contains only the Ext.Direct.Mvc library, whereas Ext.Direct.Mvc4.sln solution also contains test app with examples. It's a good place to start if you are new to Ext.Direct.Mvc.
 
 ## Quick Start
 
