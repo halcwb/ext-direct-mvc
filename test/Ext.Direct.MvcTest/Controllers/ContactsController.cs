@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ext.Direct.Mvc;
-using Ext.Direct.Mvc4Test.Models;
+using Ext.Direct.MvcTest.Models;
 
-namespace Ext.Direct.Mvc4Test.Controllers {
+namespace Ext.Direct.MvcTest.Controllers {
     public class ContactsController : DirectController {
 
         private readonly ContactsContext db = new ContactsContext();

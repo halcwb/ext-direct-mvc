@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ext.Direct.Mvc3", "src\Ext.Direct.Mvc\Ext.Direct.Mvc3.csproj", "{A521832A-D1FB-468F-BA7C-1FAE0F7F45EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ext.Direct.Mvc", "src\Ext.Direct.Mvc\Ext.Direct.Mvc.csproj", "{A521832A-D1FB-468F-BA7C-1FAE0F7F45EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{64FA027D-43BA-4FF9-B83C-C6B39B7B73D5}"
 	ProjectSection(SolutionItems) = preProject
@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{64FA02
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ext.Direct.MvcTest", "test\Ext.Direct.MvcTest\Ext.Direct.MvcTest.csproj", "{323DA49A-6F49-4478-8AF2-8C0F421C54F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{A521832A-D1FB-468F-BA7C-1FAE0F7F45EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A521832A-D1FB-468F-BA7C-1FAE0F7F45EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A521832A-D1FB-468F-BA7C-1FAE0F7F45EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{323DA49A-6F49-4478-8AF2-8C0F421C54F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{323DA49A-6F49-4478-8AF2-8C0F421C54F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{323DA49A-6F49-4478-8AF2-8C0F421C54F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{323DA49A-6F49-4478-8AF2-8C0F421C54F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
-namespace Ext.Direct.Mvc4Test.Models {
+namespace Ext.Direct.MvcTest.Models {
     public class ContactsContext : DbContext {
         public DbSet<Contact> Contacts { get; set; }
 

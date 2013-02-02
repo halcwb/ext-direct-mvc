@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ext.Direct.Mvc4Test</RootNamespace>
-    <AssemblyName>Ext.Direct.Mvc4Test</AssemblyName>
+    <RootNamespace>Ext.Direct.MvcTest</RootNamespace>
+    <AssemblyName>Ext.Direct.MvcTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -156,9 +156,9 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Ext.Direct.Mvc\Ext.Direct.Mvc4.csproj">
+    <ProjectReference Include="..\..\src\Ext.Direct.Mvc\Ext.Direct.Mvc.csproj">
       <Project>{a521832a-d1fb-468f-ba7c-1fae0f7f45ea}</Project>
-      <Name>Ext.Direct.Mvc4</Name>
+      <Name>Ext.Direct.Mvc</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

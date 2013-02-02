@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Ext.Direct.Mvc4Test.Models {
+namespace Ext.Direct.MvcTest.Models {
     public class ContactsInitializer : DropCreateDatabaseAlways<ContactsContext> {
         protected override void Seed(ContactsContext context) {
             var contacts = new List<Contact> {

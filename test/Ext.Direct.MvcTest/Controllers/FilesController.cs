@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ext.Direct.Mvc;
 
-namespace Ext.Direct.Mvc4Test.Controllers {
+namespace Ext.Direct.MvcTest.Controllers {
     public class FilesController : DirectController {
         [FormHandler]
         public ActionResult Upload() {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Ext.Direct.Mvc4Test {
+namespace Ext.Direct.MvcTest {
     public static class WebApiConfig {
         public static void Register(HttpConfiguration config) {
             config.Routes.MapHttpRoute(

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Ext.Direct.Mvc4Test.Controllers
+namespace Ext.Direct.MvcTest.Controllers
 {
     public class HomeController : Controller
     {
