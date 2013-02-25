@@ -27,9 +27,10 @@ namespace Ext.Direct.Mvc {
 
         public string ToJson() {
             string jsonResponse;
-            JsonSerializer serializer = JsonSerializer.Create(Settings);
-
-            var converter = ProviderConfiguration.GetDefaultDateTimeConverter();
+            var provider = DirectProvider.GetCurrent();
+            var serializer = JsonSerializer.Create(Settings);
+            
+            var converter = provider.GetDefaultDateTimeConverter();
             if (converter != null) {
                 // Default DateTime converter is added last therefore will not override the
                 // one provided by the caller.
@@ -41,7 +42,7 @@ namespace Ext.Direct.Mvc {
 #if DEBUG
                     jsonWriter.Formatting = Formatting.Indented;
 #else
-                    jsonWriter.Formatting = ProviderConfiguration.GetConfiguration().Debug ? Formatting.Indented : Formatting.None;
+                    jsonWriter.Formatting = provider.Debug ? Formatting.Indented : Formatting.None;
 #endif
                     serializer.Serialize(jsonWriter, this);
                     jsonResponse = stringWriter.ToString();

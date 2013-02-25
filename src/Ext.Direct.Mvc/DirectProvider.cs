@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Ext.Direct.Mvc.Resources;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Ext.Direct.Mvc {
 
@@ -20,7 +21,50 @@ namespace Ext.Direct.Mvc {
         private Dictionary<string, DirectAction> _actions;
         private IControllerFactory _factory;
 
-        public string Name { get; set; }
+        private string _name;
+        private string _namespace;
+        private string _assembly;
+        private int? _buffer;
+        private int? _maxRetries;
+        private int? _timeout;
+        private string _dateFormat;
+
+        public string Name {
+            get { return _name; }
+            set { if (value != null) _name = value; }
+        }
+
+        public string Namespace {
+            get { return _namespace; }
+            set { if (value != null) _namespace = value; }
+        }
+
+        public string Assembly {
+            get { return _assembly; }
+            set { if (value != null) _assembly = value; }
+        }
+
+        public int? Buffer {
+            get { return _buffer; }
+            set { if (value.HasValue) _buffer = value.Value; }
+        }
+
+        public int? MaxRetries {
+            get { return _maxRetries; }
+            set { if (value.HasValue) _maxRetries = value.Value; }
+        }
+
+        public int? Timeout {
+            get { return _timeout; }
+            set { if (value.HasValue) _timeout = value.Value; }
+        }
+
+        public string DateFormat {
+            get { return _dateFormat; }
+            set { if (value != null) _dateFormat = value; }
+        }
+
+        public bool Debug { get; set; }
 
         public string Url {
             get {
@@ -30,6 +74,18 @@ namespace Ext.Direct.Mvc {
                 }
                 return path + "DirectRouter/Index";
             }
+        }
+
+        private DirectProvider() {
+            var config = ProviderConfiguration.GetConfiguration();
+            this.Name = config.Name;
+            this.Namespace = config.Namespace;
+            this.Assembly = config.Assembly;
+            this.Buffer = config.Buffer;
+            this.MaxRetries = config.MaxRetries;
+            this.Timeout = config.Timeout;
+            this.DateFormat = config.DateFormat;
+            this.Debug = config.Debug;
         }
 
         public static DirectProvider GetCurrent() {
@@ -48,11 +104,10 @@ namespace Ext.Direct.Mvc {
             if (_actions == null) {
                 _actions = new Dictionary<string, DirectAction>();
 
-                var config = ProviderConfiguration.GetConfiguration();
-                if (!String.IsNullOrEmpty(config.Assembly)) {
-                    string[] assemblyNames = config.Assembly.Split(',');
+                if (!String.IsNullOrEmpty(this.Assembly)) {
+                    string[] assemblyNames = this.Assembly.Split(',');
                     foreach (string assemblyName in assemblyNames) {
-                        Assembly assembly = Assembly.Load(assemblyName.Trim());
+                        Assembly assembly = System.Reflection.Assembly.Load(assemblyName.Trim());
                         ConfigureAssembly(assembly);
                     }
                 } else {
@@ -100,7 +155,6 @@ namespace Ext.Direct.Mvc {
         }
 
         public string ToString(bool json) {
-            var config = ProviderConfiguration.GetConfiguration();
             var sb = new StringBuilder();
             var sw = new StringWriter(sb);
 
@@ -108,25 +162,25 @@ namespace Ext.Direct.Mvc {
 #if DEBUG
                 writer.Formatting = Formatting.Indented;
 #else
-                writer.Formatting = config.Debug ? Formatting.Indented : Formatting.None;
+                writer.Formatting = this.Debug ? Formatting.Indented : Formatting.None;
 #endif
                 writer.WriteStartObject();
                 writer.WriteProperty("type", "remoting");
                 writer.WriteProperty("url", Url);
                 if (json) {
-                    writer.WriteProperty("descriptor", Name ?? config.Name);
+                    writer.WriteProperty("descriptor", this.Name);
                 }
-                if (!String.IsNullOrEmpty(config.Namespace)) {
-                    writer.WriteProperty("namespace", config.Namespace);
+                if (!String.IsNullOrEmpty(this.Namespace)) {
+                    writer.WriteProperty("namespace", this.Namespace);
                 }
-                if (config.Buffer.HasValue) {
-                    writer.WriteProperty("enableBuffer", config.Buffer.Value);
+                if (this.Buffer.HasValue) {
+                    writer.WriteProperty("enableBuffer", this.Buffer.Value);
                 }
-                if (config.MaxRetries.HasValue) {
-                    writer.WriteProperty("maxRetries", config.MaxRetries.Value);
+                if (this.MaxRetries.HasValue) {
+                    writer.WriteProperty("maxRetries", this.MaxRetries.Value);
                 }
-                if (config.Timeout.HasValue) {
-                    writer.WriteProperty("timeout", config.Timeout.Value);
+                if (this.Timeout.HasValue) {
+                    writer.WriteProperty("timeout", this.Timeout.Value);
                 }
                 writer.WritePropertyName("actions");
                 writer.WriteStartObject();
@@ -137,7 +191,7 @@ namespace Ext.Direct.Mvc {
                 writer.WriteEndObject();
             }
 
-            string name = Name ?? config.Name;
+            string name = this.Name;
             if (name.Contains('.')) {
                 name = String.Format("Ext.ns(\"{0}\");\n{1}", name.Substring(0, name.LastIndexOf('.')), name);
             }
@@ -225,5 +279,23 @@ namespace Ext.Direct.Mvc {
         }
 
         #endregion
+
+        public JsonConverter GetDefaultDateTimeConverter() {
+            string dateFormat = this.DateFormat;
+            JsonConverter converter;
+            switch (dateFormat.ToLower()) {
+                case "js":
+                case "javascript":
+                    converter = new JavaScriptDateTimeConverter();
+                    break;
+                case "iso":
+                    converter = new IsoDateTimeConverter();
+                    break;
+                default:
+                    converter = null;
+                    break;
+            }
+            return converter;
+        }
     }
 }

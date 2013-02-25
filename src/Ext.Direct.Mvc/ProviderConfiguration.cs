@@ -16,24 +16,6 @@ namespace Ext.Direct.Mvc {
             return _configuration ?? (_configuration = new ProviderConfiguration());
         }
 
-        public static JsonConverter GetDefaultDateTimeConverter() {
-            string dateFormat = GetConfiguration().DateFormat;
-            JsonConverter converter;
-            switch (dateFormat.ToLower()) {
-                case "js":
-                case "javascript":
-                    converter = new JavaScriptDateTimeConverter();
-                    break;
-                case "iso":
-                    converter = new IsoDateTimeConverter();
-                    break;
-                default:
-                    converter = null;
-                    break;
-            }
-            return converter;
-        }
-
         [ConfigurationProperty("name", IsRequired = false, DefaultValue = "Ext.app.REMOTING_API")]
         public string Name {
             get { return (string)this["name"]; }

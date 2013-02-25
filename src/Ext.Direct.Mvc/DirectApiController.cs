@@ -9,9 +9,25 @@ namespace Ext.Direct.Mvc {
 
         [AcceptVerbs("GET")]
         public ActionResult Index() {
+            int number;
+            bool flag;
+            var qs = HttpContext.Request.QueryString;
+
+            _provider.Name = qs["name"];
+            _provider.Namespace = qs["ns"] ?? qs["namespace"];
+            if (int.TryParse(qs["buffer"], out number))
+                _provider.Buffer = number;
+            if (int.TryParse(qs["maxRetries"], out number))
+                _provider.MaxRetries = number;
+            if (int.TryParse(qs["timeout"], out number))
+                _provider.Timeout = number;
+            _provider.DateFormat = qs["dateFormat"];
+            if (bool.TryParse(qs["debug"], out flag))
+                _provider.Debug = flag;
+
             // for integration with the Ext Designer
-            bool json = (HttpContext.Request.QueryString["format"] == "json");
-            _provider.Name = HttpContext.Request.QueryString["name"];
+            var json = (qs["format"] == "json");
+
             return JavaScript(_provider.ToString(json));
         }
     }

@@ -69,15 +69,17 @@ namespace Ext.Direct.Mvc {
                     response.Write(Data);
                 } else {
                     using (JsonWriter writer = new JsonTextWriter(response.Output)) {
-                        JsonSerializer serializer = JsonSerializer.Create(Settings);
-                        var converter = ProviderConfiguration.GetDefaultDateTimeConverter();
+                        var provider = DirectProvider.GetCurrent();
+                        var serializer = JsonSerializer.Create(Settings);
+
+                        var converter = provider.GetDefaultDateTimeConverter();
                         if (converter != null) {
                             serializer.Converters.Add(converter);
                         }
 #if DEBUG
                         writer.Formatting = Formatting.Indented;
 #else
-                        writer.Formatting = ProviderConfiguration.GetConfiguration().Debug ? Formatting.Indented : Formatting.None;
+                        writer.Formatting = provider.Debug ? Formatting.Indented : Formatting.None;
 #endif
                         serializer.Serialize(writer, Data);
                     }
