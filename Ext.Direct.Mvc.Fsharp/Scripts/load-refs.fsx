@@ -1,0 +1,15 @@
+// Warning: Generated file, your change could be losted when new file is generated. 
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll"
+#r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll"
+#r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.ComponentModel.DataAnnotations.dll"
+#r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll"
+#r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Numerics.dll"
+#r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll"
+
