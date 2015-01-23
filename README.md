@@ -1,5 +1,8 @@
 # Ext.Direct for ASP.NET MVC
 
+* Run *build.cmd* [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/17969592ymx2rqic)](https://ci.appveyor.com/project/halcwb/ext-direct-mvc)
+
+
 Ext.Direct.Mvc is an implementation of Ext Direct server-side stack for ASP.NET MVC. Ext Direct is a platform and language agnostic technology to remote server-side methods to the client-side. Ext Direct allows for seamless communication between the client-side of an Ext JS application and all popular server platforms. For more information about Ext Direct visit http://www.sencha.com/products/extjs/extdirect.
 
 ## Key features
