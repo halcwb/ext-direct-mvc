@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ext.Direct.Mvc;
+using Ext.Direct.Mvc.Attributes;
 
 namespace Ext.Direct.MvcTest.Controllers {
     public class FilesController : DirectController {

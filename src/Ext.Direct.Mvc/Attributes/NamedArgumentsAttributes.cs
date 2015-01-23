@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Ext.Direct.Mvc {
+namespace Ext.Direct.Mvc.Attributes {
 
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Method, Inherited = false)]
     public sealed class NamedArgumentsAttribute : Attribute {
 
     }

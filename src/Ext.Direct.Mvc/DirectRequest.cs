@@ -9,6 +9,7 @@ namespace Ext.Direct.Mvc {
 
         public static string DirectRequestKey = "Ext.Direct.Mvc.DirectRequest";
 
+        public const string RequestFormId = "id";
         public const string RequestFormTransactionId = "extTID";
         public const string RequestFormType = "extType";
         public const string RequestFormAction = "extAction";
@@ -25,6 +26,7 @@ namespace Ext.Direct.Mvc {
             Type = httpRequest[RequestFormType] ?? String.Empty;
             IsFileUpload = Convert.ToBoolean(httpRequest[RequestFileUpload]);
             TransactionId = Convert.ToInt32(httpRequest[RequestFormTransactionId]);
+            Id = Convert.ToInt32(httpRequest[RequestFormId]);
         }
 
         public string Action {
@@ -63,5 +65,8 @@ namespace Ext.Direct.Mvc {
             get;
             set;
         }
+
+        [JsonProperty("id")]
+        public int Id { get; set; }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Ext.Direct.Mvc {
+namespace Ext.Direct.Mvc.Extensions {
 
     internal static class MethodExtensions {
 
         internal static bool HasAttribute<T>(this MethodBase method) where T : Attribute {
-            T attribute = method.GetAttribute<T>();
+            var attribute = method.GetAttribute<T>();
             return attribute != null;
         }
 

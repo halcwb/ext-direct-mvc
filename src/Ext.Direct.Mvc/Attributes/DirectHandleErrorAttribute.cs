@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace Ext.Direct.Mvc {
+namespace Ext.Direct.Mvc.Attributes {
 
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class DirectHandleErrorAttribute : FilterAttribute, IExceptionFilter {
 
         public void OnException(ExceptionContext filterContext) {

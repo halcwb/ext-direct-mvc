@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Ext.Direct.Mvc {
 
@@ -7,6 +6,7 @@ namespace Ext.Direct.Mvc {
 
         public DirectDataResponse(DirectRequest request) : base(request) {
             TransactionId = request.TransactionId;
+            Id = request.Id;
             Action = request.Action;
             Method = request.Method;
         }
@@ -18,6 +18,12 @@ namespace Ext.Direct.Mvc {
 
         [JsonProperty("tid")]
         public int TransactionId {
+            get;
+            set;
+        }
+
+        [JsonProperty("id")]
+        public int Id {
             get;
             set;
         }

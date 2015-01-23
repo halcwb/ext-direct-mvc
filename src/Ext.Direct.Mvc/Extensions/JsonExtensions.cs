@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Ext.Direct.Mvc {
+namespace Ext.Direct.Mvc.Extensions {
 
     internal static class JsonExtensions {
 

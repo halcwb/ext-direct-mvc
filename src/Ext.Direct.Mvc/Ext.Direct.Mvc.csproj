@@ -109,7 +109,9 @@
     <Compile Include="Resources\DirectResources.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\DirectResources.resx" />
+    <EmbeddedResource Include="Resources\DirectResources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

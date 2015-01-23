@@ -1,8 +1,12 @@
 // Warning: Generated file, your change could be losted when new file is generated. 
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\FsUnit.1.3.0.1\Lib\Net40\FsUnit.NUnit.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Fuchu.0.4.0.0\lib\Fuchu.dll"
 #r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll"
 #r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\NUnit.2.6.3\lib\nunit.framework.dll"
 #r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll"
 #r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.ComponentModel.DataAnnotations.dll"
+#r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Configuration.dll"
 #r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll"
 #r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Numerics.dll"
 #r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.dll"
@@ -12,4 +16,6 @@
 #r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll"
 #r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll"
 #r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll"
+#r @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll"
+#r @"C:\Users\hal\Dropbox\Development\ext-direct-mvc\packages\Unquote.2.2.2\lib\net40\Unquote.dll"
 

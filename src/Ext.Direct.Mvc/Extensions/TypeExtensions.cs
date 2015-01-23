@@ -5,7 +5,7 @@ namespace Ext.Direct.Mvc {
     internal static class TypeExtensions {
 
         internal static bool HasAttribute<T>(this Type type) where T : Attribute {
-            T attribute = type.GetAttribute<T>();
+            var attribute = type.GetAttribute<T>();
             return attribute != null;
         }
 

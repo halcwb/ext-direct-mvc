@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Web.Compilation;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Ext.Direct.Mvc.Attributes;
+using Ext.Direct.Mvc.Extensions;
 using Ext.Direct.Mvc.Resources;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -68,8 +70,8 @@ namespace Ext.Direct.Mvc {
 
         public string Url {
             get {
-                string path = HttpContext.Current.Request.ApplicationPath;
-                if (!path.EndsWith("/")) {
+                var path = HttpContext.Current.Request.ApplicationPath;
+                if (path != null && !path.EndsWith("/")) {
                     path += "/";
                 }
                 return path + "DirectRouter/Index";
@@ -78,14 +80,14 @@ namespace Ext.Direct.Mvc {
 
         private DirectProvider() {
             var config = ProviderConfiguration.GetConfiguration();
-            this.Name = config.Name;
-            this.Namespace = config.Namespace;
-            this.Assembly = config.Assembly;
-            this.Buffer = config.Buffer;
-            this.MaxRetries = config.MaxRetries;
-            this.Timeout = config.Timeout;
-            this.DateFormat = config.DateFormat;
-            this.Debug = config.Debug;
+            Name = config.Name;
+            Namespace = config.Namespace;
+            Assembly = config.Assembly;
+            Buffer = config.Buffer;
+            MaxRetries = config.MaxRetries;
+            Timeout = config.Timeout;
+            DateFormat = config.DateFormat;
+            Debug = config.Debug;
         }
 
         public static DirectProvider GetCurrent() {
@@ -104,8 +106,8 @@ namespace Ext.Direct.Mvc {
             if (_actions == null) {
                 _actions = new Dictionary<string, DirectAction>();
 
-                if (!String.IsNullOrEmpty(this.Assembly)) {
-                    string[] assemblyNames = this.Assembly.Split(',');
+                if (!String.IsNullOrEmpty(Assembly)) {
+                    string[] assemblyNames = Assembly.Split(',');
                     foreach (string assemblyName in assemblyNames) {
                         Assembly assembly = System.Reflection.Assembly.Load(assemblyName.Trim());
                         ConfigureAssembly(assembly);
@@ -168,19 +170,19 @@ namespace Ext.Direct.Mvc {
                 writer.WriteProperty("type", "remoting");
                 writer.WriteProperty("url", Url);
                 if (json) {
-                    writer.WriteProperty("descriptor", this.Name);
+                    writer.WriteProperty("descriptor", Name);
                 }
-                if (!String.IsNullOrEmpty(this.Namespace)) {
-                    writer.WriteProperty("namespace", this.Namespace);
+                if (!String.IsNullOrEmpty(Namespace)) {
+                    writer.WriteProperty("namespace", Namespace);
                 }
-                if (this.Buffer.HasValue) {
-                    writer.WriteProperty("enableBuffer", this.Buffer.Value);
+                if (Buffer.HasValue) {
+                    writer.WriteProperty("enableBuffer", Buffer.Value);
                 }
-                if (this.MaxRetries.HasValue) {
-                    writer.WriteProperty("maxRetries", this.MaxRetries.Value);
+                if (MaxRetries.HasValue) {
+                    writer.WriteProperty("maxRetries", MaxRetries.Value);
                 }
-                if (this.Timeout.HasValue) {
-                    writer.WriteProperty("timeout", this.Timeout.Value);
+                if (Timeout.HasValue) {
+                    writer.WriteProperty("timeout", Timeout.Value);
                 }
                 writer.WritePropertyName("actions");
                 writer.WriteStartObject();
@@ -191,7 +193,7 @@ namespace Ext.Direct.Mvc {
                 writer.WriteEndObject();
             }
 
-            string name = this.Name;
+            string name = Name;
             if (name.Contains('.')) {
                 name = String.Format("Ext.ns(\"{0}\");\n{1}", name.Substring(0, name.LastIndexOf('.')), name);
             }
@@ -281,7 +283,7 @@ namespace Ext.Direct.Mvc {
         #endregion
 
         public JsonConverter GetDefaultDateTimeConverter() {
-            string dateFormat = this.DateFormat;
+            string dateFormat = DateFormat;
             JsonConverter converter;
             switch (dateFormat.ToLower()) {
                 case "js":
