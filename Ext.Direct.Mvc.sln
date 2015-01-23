@@ -3,18 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{64FA027D-43BA-4FF9-B83C-C6B39B7B73D5}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ext.Direct.Mvc", "src\Ext.Direct.Mvc\Ext.Direct.Mvc.csproj", "{A521832A-D1FB-468F-BA7C-1FAE0F7F45EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ext.Direct.MvcTest", "test\Ext.Direct.MvcTest\Ext.Direct.MvcTest.csproj", "{323DA49A-6F49-4478-8AF2-8C0F421C54F8}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Ext.Direct.Mvc.Fsharp", "Ext.Direct.Mvc.Fsharp\Ext.Direct.Mvc.Fsharp.fsproj", "{6C36A914-A269-4F59-803E-B2CFF4182A71}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Ext.Direct.Mvc.Fsharp", "src\Ext.Direct.Mvc.Fsharp\Ext.Direct.Mvc.Fsharp.fsproj", "{6C36A914-A269-4F59-803E-B2CFF4182A71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
